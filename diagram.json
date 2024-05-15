@@ -3,9 +3,54 @@
   "author": "Anonymous maker",
   "editor": "wokwi",
   "parts": [
-    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
-    { "type": "wokwi-led", "id": "led1", "top": -99.6, "left": 80.6, "attrs": { "color": "red" } }
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -325.8, "left": -288.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": -242, "left": 57.6, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo2", "top": -366.8, "left": 48, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo3", "top": -520.4, "left": 57.6, "attrs": {} },
+    {
+      "type": "wokwi-servo",
+      "id": "servo4",
+      "top": -367.6,
+      "left": -544.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo5",
+      "top": -530.8,
+      "left": -544.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo6",
+      "top": -204.4,
+      "left": -554,
+      "rotate": 180,
+      "attrs": {}
+    }
   ],
-  "connections": [ [ "led1:C", "uno:GND.1", "green", [ "v0" ] ], [ "led1:A", "uno:13", "green", [ "v0" ] ] ],
+  "connections": [
+    [ "uno:GND.2", "servo1:GND", "black", [ "v0" ] ],
+    [ "uno:5V", "servo1:V+", "red", [ "v0" ] ],
+    [ "uno:5V", "servo6:V+", "red", [ "v0" ] ],
+    [ "uno:GND.3", "servo6:GND", "black", [ "v0" ] ],
+    [ "uno:4", "servo1:PWM", "green", [ "v144", "h119.1" ] ],
+    [ "uno:5", "servo6:PWM", "green", [ "v0" ] ],
+    [ "uno:6", "servo2:PWM", "green", [ "v0" ] ],
+    [ "uno:7", "servo4:PWM", "green", [ "v0" ] ],
+    [ "uno:8", "servo3:PWM", "green", [ "v0" ] ],
+    [ "uno:9", "servo5:PWM", "green", [ "v0" ] ],
+    [ "servo1:V+", "servo2:V+", "green", [ "h0" ] ],
+    [ "servo1:PWM", "servo2:GND", "green", [ "h0" ] ],
+    [ "servo2:V+", "servo3:V+", "green", [ "h0" ] ],
+    [ "servo2:GND", "servo3:GND", "black", [ "h0" ] ],
+    [ "servo6:V+", "servo4:V+", "green", [ "h0" ] ],
+    [ "servo6:GND", "servo4:GND", "black", [ "h0" ] ],
+    [ "servo4:V+", "servo5:V+", "green", [ "h0", "v-172.9" ] ],
+    [ "servo4:GND", "servo5:GND", "black", [ "h0" ] ]
+  ],
   "dependencies": {}
 }
